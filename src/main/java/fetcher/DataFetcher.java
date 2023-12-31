@@ -1,6 +1,6 @@
 package fetcher;
 
-public interface DataFetcher {
+public interface DataFetcher<T> {
 
-<T> T fetchData(String url);
+T fetchData(String url);
 }

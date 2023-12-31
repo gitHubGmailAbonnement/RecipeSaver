@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML Scraping: How to Scrape any Website | ParseHub</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/blog/assets/built/screen.css?v=6b8cf54975">
+    <meta name="description" content="Learn how to scrape HTML websites and how to extract specific HTML attributes such as ID’s, classes and more.">
+    <link rel="shortcut icon" href="/blog/favicon.png" type="image/png">
+    <link rel="canonical" href="https://www.parsehub.com/blog/html-scraping/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="https://www.parsehub.com/blog/html-scraping/amp/">
+    <meta property="og:site_name" content="Web Scraping Blog (Tips, Guides + Tutorials) | ParseHub">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="HTML Scraping: How to Scrape any Website | ParseHub">
+    <meta property="og:description" content="Almost every website on the internet is written using HTML.
+
+If you’d want to automatically extract data from a website, you would have to
+deal with a bunch of HTML code.
+
+A web scraper [http://parsehub.com/] can help you extract data from any site and
+also pull any specific HTML attributes such as class and title tags. Web
+scrapers are used to scrape anything from prices, descriptions, statistics and
+even code, which we will show you shortly.
+
+Using a Web Scraper for HTML Scraping
+For our examp">
+    <meta property="og:url" content="https://www.parsehub.com/blog/html-scraping/">
+    <meta property="og:image" content="https://www.parsehub.com/blog/content/images/2019/09/html-scraping.jpg">
+    <meta property="article:published_time" content="2022-12-02T15:00:00.000Z">
+    <meta property="article:modified_time" content="2022-12-02T16:31:00.000Z">
+    <meta property="article:publisher" content="https://www.facebook.com/ParseHubApp/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HTML Scraping: How to Scrape any Website | ParseHub">
+    <meta name="twitter:description" content="Almost every website on the internet is written using HTML.
+
+If you’d want to automatically extract data from a website, you would have to
+deal with a bunch of HTML code.
+
+A web scraper [http://parsehub.com/] can help you extract data from any site and
+also pull any specific HTML attributes such as class and title tags. Web
+scrapers are used to scrape anything from prices, descriptions, statistics and
+even code, which we will show you shortly.
+
+Using a Web Scraper for HTML Scraping
+For our examp">
+    <meta name="twitter:url" content="https://www.parsehub.com/blog/html-scraping/">
+    <meta name="twitter:image" content="https://www.parsehub.com/blog/content/images/2019/09/html-scraping.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Martin Perez">
+    <meta name="twitter:site" content="@parsehub">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="999">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Web Scraping Blog (Tips, Guides + Tutorials) | ParseHub",
+                "logo": "https://www.parsehub.com/blog/content/images/2019/08/parsehub_logo-white-600.png"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Martin Perez",
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "https://www.parsehub.com/blog/content/images/2019/07/mp-resized.jpg",
+                    "width": 500,
+                    "height": 506
+                },
+                "url": "https://www.parsehub.com/blog/author/martin-perez/",
+                "sameAs": [
+                    "http://parsehub.com"
+                ]
+            },
+            "headline": "HTML Scraping: How to Scrape any Website | ParseHub",
+            "url": "https://www.parsehub.com/blog/html-scraping/",
+            "datePublished": "2022-12-02T15:00:00.000Z",
+            "dateModified": "2022-12-02T16:31:00.000Z",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://www.parsehub.com/blog/content/images/2019/09/html-scraping.jpg",
+                "width": 1500,
+                "height": 999
+            },
+            "description": "Almost every website on the internet is written using HTML.\n\nIf you’d want to automatically extract data from a website, you would have to\ndeal with a bunch of HTML code.\n\nA web scraper [http://parsehub.com/] can help you extract data from any site and\nalso pull any specific HTML attributes such as class and title tags. Web\nscrapers are used to scrape anything from prices, descriptions, statistics and\neven code, which we will show you shortly.\n\nUsing a Web Scraper for HTML Scraping\nFor our examp",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.parsehub.com/blog/"
+            }
+        }
+    </script>
+    <meta name="generator" content="Ghost 2.26">
+    <link rel="alternate" type="application/rss+xml" title="Web Scraping Blog (Tips, Guides + Tutorials) | ParseHub" href="https://www.parsehub.com/blog/rss/">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NQ3GW43');</script>
+    <!-- End Google Tag Manager -->
+    <script src="https://www.momentcrm.com/embed"></script>
+    <script>
+  MomentCRM('init', {
+    'teamId': 'parsehub',
+    'doChat': 'true',
+    'doTracking': 'true',
+  });
+</script>
+    <script src="https://www.momentcrm.com/embed"></script>
+    <script>
+  MomentCRM('init', {
+    'teamId': 'parsehub',
+    'doChat': true,
+    'doTracking': true,
+  });
+</script>
+</head>
+<body class="post-template">
+<div class="site-wrapper">
+    <header class="site-header outer">
+        <div class="inner">
+            <nav class="site-nav">
+                <div class="site-nav-left">
+                    <div class="site-navbar">
+                        <div class="blog-nav-logo">
+                            <a class="blog-nav-logo-web" href="/blog"> <img class="main-nav-logo" src="/blog/assets/images/parsehub_logo3.svg?v=6b8cf54975"> <p>|</p> <p>Blog</p> </a>
+                            <a class="blog-nav-logo-mobile" href="/blog"> <img class="main-nav-logo" src="/blog/assets/images/parsehub_logo_icon.svg?v=6b8cf54975"> </a>
+                        </div>
+                    </div>
+                    <ul class="nav" role="menu">
+                        <li class="nav-download" role="menuitem"><a href="https://www.parsehub.com/quickstart">Download</a></li>
+                        <li class="nav-pricing" role="menuitem"><a href="https://www.parsehub.com/pricing">Pricing</a></li>
+                        <li class="nav-free-courses" role="menuitem"><a href="https://academy.parsehub.com/">Free Courses</a></li>
+                    </ul>
+                </div>
+                <div class="site-nav-right">
+                    <div class="social-links">
+                        <a class="social-link social-link-fb" href="https://www.facebook.com/ParseHubApp/" title="Facebook" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
+                                <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z" />
+                            </svg> </a>
+                        <a class="social-link social-link-tw" href="https://twitter.com/parsehub" title="Twitter" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
+                                <path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z" />
+                            </svg> </a>
+                    </div>
+                    <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://www.parsehub.com/blog/rss/" title="RSS" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+                            <circle cx="6.18" cy="17.82" r="2.18" />
+                            <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z" />
+                        </svg> </a>
+                    <a href="/" class="nav-exit-link">
+                        <div>
+                            <img class="exit-nav-logo" src="/blog/assets/images/exit.svg?v=6b8cf54975"> parsehub.com
+                        </div> </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main id="site-main" class="site-main outer">
+        <div class="inner">
+            <article class="post-full post ">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" datetime="2022-12-02">2 December 2022</time>
+                    </section>
+                    <h1 class="post-full-title">2023 Guide on HTML Scraping: How to Scrape any Website and Extract HTML Code</h1>
+                </header>
+                <figure class="post-full-image">
+                    <img srcset="/blog/content/images/size/w300/2019/09/html-scraping.jpg 300w,
+                            /blog/content/images/size/w600/2019/09/html-scraping.jpg 600w,
+                            /blog/content/images/size/w1000/2019/09/html-scraping.jpg 1000w,
+                            /blog/content/images/size/w2000/2019/09/html-scraping.jpg 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="/blog/content/images/size/w2000/2019/09/html-scraping.jpg" alt="2023 Guide on HTML Scraping: How to Scrape any Website and Extract HTML Code">
+                </figure>
+                <section class="post-full-content">
+                    <div class="post-content">
+                        <p>Almost every website on the internet is written using HTML.</p>
+                        <p>If you’d want to automatically extract data from a website, you would have to deal with a bunch of HTML code.</p>
+                        <p>A <a href="http://parsehub.com/">web scraper</a> can help you extract data from any site and also pull any specific HTML attributes such as class and title tags. Web scrapers are used to scrape anything from prices, descriptions, statistics and even code, which we will show you shortly.</p>
+                        <h2 id="using-a-web-scraper-for-html-scraping">Using a Web Scraper for HTML Scraping</h2>
+                        <p>For our example, we will be using <a href="https://parsehub.com/quickstart">ParseHub, a free and powerful web scraper</a>.</p>
+                        <p>One specific feature that will help us with this project, is ParseHub’s ability to also pull HTML code and attributes from a website rather than just the text on the page.</p>
+                        <p>Aside from scraping HTML code, <a href="https://www.parsehub.com/blog/web-scraping-excel-sheet/">ParseHub can also help you scrape data from any website into an Excel spreadsheet</a>!</p>
+                        <p>Also, for this example, we will scrape the first page of <a href="https://www.amazon.com/s?k=smartphone&amp;ref=nb_sb_noss_2">Amazon results for the term “smartphone”</a>.</p>
+                        <!--kg-card-begin: html-->
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/zhmPSkfzXE8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen disablekb="1" modestbranding="1" rel="0"></iframe>
+                        <!--kg-card-end: html-->
+                        <h2 id="setting-up-a-web-scraping-project">Setting up a Web Scraping Project</h2>
+                        <p>To begin, you will have to <strong><a href="https://parsehub.com/quickstart">download and install ParseHub for free</a>.</strong> Once open, click on New Project and submit the URL we will be scraping.</p>
+                        <p><a href="http://parsehub.com/">ParseHub</a> will now render the page and you will be able to select the data you’d like to extract.</p>
+                        <!--kg-card-begin: image-->
+                        <figure class="kg-card kg-image-card">
+                            <img src="https://www.parsehub.com/blog/content/images/2019/09/amazon-smartphone-rendered.jpg" class="kg-image">
+                        </figure>
+                        <!--kg-card-end: image-->
+                        <h2 id="selecting-and-extracting-data">Selecting and Extracting Data</h2>
+                        <ol>
+                            <li>Once you’ve submitted the URL, scroll down to the first organic (not sponsored) result on the page and click on the title of the first product on the page. It will be highlighted in green to indicate that it has been selected.</li>
+                        </ol>
+                        <!--kg-card-begin: image-->
+                        <figure class="kg-card kg-image-card">
+                            <img src="https://www.parsehub.com/blog/content/images/2019/09/first-product-selected.jpg" class="kg-image">
+                        </figure>
+                        <!--kg-card-end: image-->
+                        <!--kg-card-begin: html-->
+                        <ol start="2">
+                            <li>The rest of the products on the page will be highlighted in Yellow. Click on the second result of the page to select them all (they will now be highlighted in green).</li>
+                        </ol>
+                        <!--kg-card-end: html-->
+                        <!--kg-card-begin: image-->
+                        <figure class="kg-card kg-image-card">
+                            <img src="https://www.parsehub.com/blog/content/images/2019/09/all-products-selected.jpg" class="kg-image">
+                        </figure>
+                        <!--kg-card-end: image-->
+                        <!--kg-card-begin: html-->
+                        <ol start="3">
+                            <li>ParseHub is now extracting the name and URL for each product on the page, since these are present in the element we have selected.</li>
+                            <li>On the left sidebar, we can rename our selection to product.</li>
+                        </ol>
+                        <!--kg-card-end: html-->
+                        <!--kg-card-begin: image-->
+                        <figure class="kg-card kg-image-card">
+                            <img src="https://www.parsehub.com/blog/content/images/2019/09/left-sidebar.jpg" class="kg-image">
+                        </figure>
+                        <!--kg-card-end: image-->
+                        <p>Now that we have selected some data to extract, we will be able to pull additional data from the HTML code in our selection.</p>
+                        <h2 id="extracting-html-data">Extracting HTML Data</h2>
+                        <p>Once you’ve selected some data to extract, you can now select each extraction on the left sidebar. In our example, we have two extractions: one for the product name and one for the listing URL.</p>
+                        <p>You can now select the extractions and use the dropdown to edit them and extract specific HTML elements.</p>
+                        <!--kg-card-begin: image-->
+                        <figure class="kg-card kg-image-card">
+                            <img src="https://www.parsehub.com/blog/content/images/2019/09/dropdown-open.jpg" class="kg-image">
+                        </figure>
+                        <!--kg-card-end: image-->
+                        <p>By default, the extraction will first extract the text that has been selected.</p>
+                        <p><strong>Extraction</strong>: Text<br><strong>Result</strong>: Samsung Galaxy A10 32GB (A105M) 6.2" HD+ Infinity-V 4G LTE Factory Unlocked GSM Smartphone - Black</p>
+                        <p>Next, we can also extract the href Attribute for our selection (URL).</p>
+                        <p><strong>Extraction</strong>: URL (href Attribute)<br><strong>Result</strong>: https://www.amazon.com/Samsung-A10-Infinity-V-Unlocked-Smartphone/dp/B07Q84DPZH/</p>
+                        <p>The Full HTML extraction will extract the entire HTML code from your selection, this can be especially helpful when selecting entire DIVs on the page.</p>
+                        <p><strong>Extraction</strong>: Full HTML<br><strong>Result</strong>: &lt;span class="a-size-medium a-color-base a-text-normal"&gt;Samsung Galaxy A10 32GB (A105M) 6.2" HD+ Infinity-V 4G LTE Factory Unlocked GSM Smartphone - Black&lt;/span&gt;</p>
+                        <p>The Inner HTML extraction will extract any content found within the HTML tags of the selection you’ve made.</p>
+                        <p><strong>Extraction</strong>: Inner HTML<br><strong>Result</strong>: Samsung Galaxy A10 32GB (A105M) 6.2" HD+ Infinity-V 4G LTE Factory Unlocked GSM Smartphone - Black</p>
+                        <h3 id="attribute-extraction">Attribute Extraction</h3>
+                        <p>In many cases, your selection will have HTML attributes such as class, ID or title.</p>
+                        <p>ParseHub will automatically identify these attributes and allow you to extract the data enclosed within them.</p>
+                        <p>In this example selection we have made, ParseHub has picked up the class attribute. We can now select it from the dropdown to extract that data specifically.</p>
+                        <p><strong>Extraction</strong>: class Attribute<br><strong>Result</strong>: a-size-medium a-color-base a-text-normal</p>
+                        <h2 id="building-and-running-your-scrape">Building and Running your Scrape</h2>
+                        <!--kg-card-begin: image-->
+                        <figure class="kg-card kg-image-card">
+                            <img src="https://www.parsehub.com/blog/content/images/2019/09/final-scrape-results.jpg" class="kg-image">
+                        </figure>
+                        <!--kg-card-end: image-->
+                        <p>What we have setup today is a very simple scraping project, as it is only extracting the name and URL for each product in one page.</p>
+                        <p>For a more in-depth guide on how to build a larger project (with your new HTML extraction skills), check out our <a href="https://www.parsehub.com/blog/web-scraper-tutorial">tutorial on setting up a web scraping project</a>.</p>
+                        <p>By following our tutorial you will be able to extract data from any website and into a spreadsheet, including HTML data and attributes.</p>
+                        <p>Ultimately, scraping HTML in 2023 is easy with ParseHub, and can save you a lot of time and money. If you're an enterprise business that needs help with large amounts of HTML scraping, check out <a href="https://plus.parsehub.com">ParseHub Plus</a>.</p>
+                        <p>You can also get one of our FREE Web Scraping Certifications. <a href="https://academy.parsehub.com/">Enroll to one of our Web Scraping Certification courses today</a>!</p>
+                        <p>Happy Scraping!</p>
+                    </div>
+                </section>
+                <footer class="post-full-footer">
+                    <section class="author-card">
+                        <img class="author-profile-image" src="/blog/content/images/size/w100/2019/07/mp-resized.jpg" alt="Martin Perez">
+                        <section class="author-card-content">
+                            <h4 class="author-card-name"><a href="/blog/author/martin-perez/">Martin Perez</a></h4>
+                            <p>Martin is the Digital Marketing Specialist at ParseHub. A lover of all things related to tech, culture, and the internet. </p>
+                        </section>
+                    </section>
+                    <div class="post-full-footer-right">
+                        <a class="author-card-button" href="/blog/author/martin-perez/">Read More</a>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </main>
+    <aside class="read-next outer">
+        <div class="inner">
+            <div class="read-next-feed">
+                <article class="post-card post ">
+                    <a class="post-card-image-link" href="/blog/scrape-walgreens/"> <img class="post-card-image" srcset="/blog/content/images/size/w300/2022/12/How-to-Scrape-Walgreens.jpg 300w,
+                    /blog/content/images/size/w600/2022/12/How-to-Scrape-Walgreens.jpg 600w,
+                    /blog/content/images/size/w1000/2022/12/How-to-Scrape-Walgreens.jpg 1000w,
+                    /blog/content/images/size/w2000/2022/12/How-to-Scrape-Walgreens.jpg 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2022/12/How-to-Scrape-Walgreens.jpg" alt="How to Scrape Walgreens"> </a>
+                    <div class="post-card-content">
+                        <a class="post-card-content-link" href="/blog/scrape-walgreens/">
+                            <header class="post-card-header">
+                                <h2 class="post-card-title">How to Scrape Walgreens</h2>
+                            </header>
+                            <section class="post-card-excerpt">
+                                <p>Walgreens was first founded in 1901 in Chicago, originally as a family-owned grocery store. It has since grown to become USA’s second-largest pharmacy, right after CVS. There are over 9,000 Walgreens</p>
+                            </section> </a>
+                        <footer class="post-card-meta">
+                            <ul class="author-list">
+                                <li class="author-list-item">
+                                    <div class="author-name-tooltip">
+                                        Farzad Vafaei
+                                    </div> <a href="/blog/author/farzad/" class="static-avatar"> <img class="author-profile-image" src="/blog/content/images/size/w100/2022/06/profilepic.jpg" alt="Farzad Vafaei"> </a> </li>
+                            </ul>
+                            <span class="reading-time">3 min read</span>
+                        </footer>
+                    </div>
+                </article>
+                <article class="post-card post tag-web-scraping ">
+                    <a class="post-card-image-link" href="/blog/scrape-images-website/"> <img class="post-card-image" srcset="/blog/content/images/size/w300/2021/01/scrape-and-download-images-1.jpg 300w,
+                    /blog/content/images/size/w600/2021/01/scrape-and-download-images-1.jpg 600w,
+                    /blog/content/images/size/w1000/2021/01/scrape-and-download-images-1.jpg 1000w,
+                    /blog/content/images/size/w2000/2021/01/scrape-and-download-images-1.jpg 2000w" sizes="(max-width: 1000px) 400px, 700px" src="/blog/content/images/size/w600/2021/01/scrape-and-download-images-1.jpg" alt="[2023 Guide] How to Scrape and Download Images from any Website"> </a>
+                    <div class="post-card-content">
+                        <a class="post-card-content-link" href="/blog/scrape-images-website/">
+                            <header class="post-card-header">
+                                <span class="post-card-tags">Web Scraping</span>
+                                <h2 class="post-card-title">[2023 Guide] How to Scrape and Download Images from any Website</h2>
+                            </header>
+                            <section class="post-card-excerpt">
+                                <p>Downloading lots of images from a website can be quite time-consuming.Right-click, Save Image As…, repeat ad nauseam.You may want to scrape images from social media platforms such as Instagram, Pinterest, Twitter,</p>
+                            </section> </a>
+                        <footer class="post-card-meta">
+                            <ul class="author-list">
+                                <li class="author-list-item">
+                                    <div class="author-name-tooltip">
+                                        Martin Perez
+                                    </div> <a href="/blog/author/martin-perez/" class="static-avatar"> <img class="author-profile-image" src="/blog/content/images/size/w100/2019/07/mp-resized.jpg" alt="Martin Perez"> </a> </li>
+                            </ul>
+                            <span class="reading-time">5 min read</span>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </aside>
+    <div class="floating-header">
+        <div class="floating-header-logo">
+            <a href="https://www.parsehub.com/blog"> <img src="/blog/content/images/size/w30/2019/08/parsehub_logo2.png" alt="Web Scraping Blog (Tips, Guides + Tutorials) | ParseHub icon"> <span>Web Scraping Blog (Tips, Guides + Tutorials) | ParseHub</span> </a>
+        </div>
+        <span class="floating-header-divider">—</span>
+        <div class="floating-header-title">
+            2023 Guide on HTML Scraping: How to Scrape any Website and Extract HTML Code
+        </div>
+        <div class="floating-header-share">
+            <div class="floating-header-share-label">
+                Share this
+                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+                    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2" />
+                </svg>
+            </div>
+            <a class="floating-header-share-tw" href="https://twitter.com/share?text=2023%20Guide%20on%20HTML%20Scraping%3A%20How%20to%20Scrape%20any%20Website%20and%20Extract%20HTML%20Code&amp;url=https://www.parsehub.com/blog/html-scraping/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
+                    <path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z" />
+                </svg> </a>
+            <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://www.parsehub.com/blog/html-scraping/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32">
+                    <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z" />
+                </svg> </a>
+        </div>
+        <progress id="reading-progress" class="progress" value="0">
+            <div class="progress-container">
+                <span class="progress-bar"></span>
+            </div> </progress>
+    </div>
+    <footer class="site-footer outer">
+        <div class="site-footer-content inner">
+            <section class="copyright">
+                <a href="https://www.parsehub.com/blog">Web Scraping Blog (Tips, Guides + Tutorials) | ParseHub</a> © 2023
+            </section>
+            <nav class="site-footer-nav">
+                <a href="https://www.parsehub.com/blog">Latest Posts</a>
+                <a href="https://www.facebook.com/ParseHubApp/" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://twitter.com/parsehub" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+<script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="/blog/assets/built/jquery.fitvids.js?v=6b8cf54975"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('#reading-progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+
+});
+</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQ3GW43" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script type="text/javascript">
+  $( document ).ready(function() {
+  	$(".post-content a").attr("target","moredetail");
+  });
+</script>
+</body>
+</html>

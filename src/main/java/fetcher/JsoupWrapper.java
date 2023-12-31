@@ -6,7 +6,7 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 public class JsoupWrapper {
-    public Document connect(String url) throws IOException {
-        return Jsoup.connect(url).timeout(0).get();
+    public Document connect(String url, int timeout) throws IOException {
+        return Jsoup.connect(url).timeout(timeout).get();
     }
 }

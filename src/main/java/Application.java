@@ -45,7 +45,13 @@ public class Application {
 
         String url1 = "https://www.livewellbakeoften.com/scone-recipe/#recipe";
         String url2 = "https://tastesbetterfromscratch.com/easy-tiramisu/";
-
+        String url3="https://www.recipetineats.com/apple-crumble/";
+        String url4="https://www.aspicyperspective.com/best-hamburger-patty-recipe/";
+        String url5="https://www.parsehub.com/blog/html-scraping/";
+        String url6="https://www.ambitiouskitchen.com/dal-recipe/";
+        //String url7="https://www.loveandlemons.com/homemade-pasta-recipe/"; //case not covered
+        String url7="https://biancazapatka.com/en/red-lentil-dahl/";
+        String url8="https://www.noracooks.com/red-lentil-dahl/";
         Document document = Jsoup.connect(url1).timeout(0).get();
 
 
@@ -56,6 +62,7 @@ public class Application {
        for (int index = 0; index<result.childNodeSize(); index++)
        {
            Node element = result.childNode(index);
+           System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"+element.childNodeSize());
 //           System.out.println(element.childNodes());
            for(Node node : element.childNodes())
            {
@@ -169,7 +176,22 @@ public class Application {
             System.out.println(data);
             List<String> splitData = List.of(data.split(" "));
             if(splitData.size()>=2) {
-                if (isNumeric(splitData.get(0)) || splitData.get(0).contains("/"))
+                if (isNumeric(splitData.get(0)) || splitData.get(0).contains("/") && isNumeric(splitData.get(1)) || splitData.get(1).contains("/") )
+                {
+                    var elementToDefine = elementIt.next();
+                    String dataToDefine =elementToDefine.ownText();
+                    System.out.println(dataToDefine);
+                    List<String> splitDataToDefine = List.of(dataToDefine.split(" "));
+                    if (isIngredientUnit(splitDataToDefine.get(0)))
+                    {
+                        System.out.println("*************************case2: "+elementToDefine.ownText());
+                        System.out.println(splitDataToDefine.get(0));
+                        System.out.println("*************************");
+                        elmentCase2 = elementToDefine;
+                        case2++;
+                    }
+                }
+                else if (isNumeric(splitData.get(0)) || splitData.get(0).contains("/"))
                 {
                     if(isIngredientUnit(splitData.get(1))) {
                         System.out.println("------------------------------------case1 number: "+element.ownText());
@@ -238,7 +260,8 @@ public class Application {
 
     private static boolean isIngredientUnit(String data)
     {
-        if (data.contains("cup"))
+        if (data.contains("cup") || data.contains("cups") || data.contains("teaspoon") || data.contains("teaspoons")
+        || data.contains("tablespoon") || data.contains("tablespoons"))
         {
             return true;
         }
