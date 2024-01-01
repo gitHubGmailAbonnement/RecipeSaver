@@ -15,9 +15,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.function.Consumer;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class HtmlJSoupIngredientProcessorImplTest {
 
@@ -29,6 +29,11 @@ class HtmlJSoupIngredientProcessorImplTest {
         Node result = parser.parseHTMLData(data);
         List<?> ingredients = classUnderTest.processData(result);
         assertFalse(ingredients.isEmpty());
+        assertEquals(5,ingredients.size());
+        Ingredient firstIngredient = (Ingredient) ingredients.get(1);
+        assertEquals("flour, plain / all-purpose",firstIngredient.getIngreident());
+        assertEquals("1",firstIngredient.getQuantity());
+        assertEquals("tbsp",firstIngredient.getUnity());
     }
 
     private Document getHtmlDocFromFile(String path) throws IOException {

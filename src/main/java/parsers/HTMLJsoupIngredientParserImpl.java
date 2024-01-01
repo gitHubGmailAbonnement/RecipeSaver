@@ -24,6 +24,7 @@ public class HTMLJsoupIngredientParserImpl<T> implements HTMLRecipeParser<T> {
         }
         return null;
     }
+    //TODO refractor
     private Node parse(Document document)
     {
         Elements elements = document.getAllElements();

@@ -28,7 +28,9 @@ public class HtmlJSoupIngredientProcessorImpl<T> implements HtmlDataProcessor<T>
         for (int index = 0; index<data.childNodeSize(); index++)
         {
             Node element = data.childNode(index);
-            String quantity=INGRDIENT_DATA_NOT_FOUND, unity = INGRDIENT_DATA_NOT_FOUND, ingredientValue = INGRDIENT_DATA_NOT_FOUND;
+            String quantity=INGRDIENT_DATA_NOT_FOUND;
+            String unity = INGRDIENT_DATA_NOT_FOUND;
+            StringBuilder ingredientValue = new StringBuilder();
             for(Node node : element.childNodes())
             {
                 if(node instanceof Element elm)
@@ -38,17 +40,21 @@ public class HtmlJSoupIngredientProcessorImpl<T> implements HtmlDataProcessor<T>
                     {
                         unity = elementText;
                     }
-                    else if(HTMLDataParserHelper.isNumeric(elementText))
+                    else if(HTMLDataParserHelper.isNumeric(elementText) || HTMLDataParserHelper.isNumericFranction(elementText))
                     {
                         quantity=elementText;
                     }
                     else {
-                        ingredientValue = elementText;
+                        ingredientValue.append(elementText);
                     }
                 }
 
             }
-            ingredients.add(new Ingredient(quantity, unity, ingredientValue));
+            if(ingredientValue.length()==0)
+            {
+                ingredientValue.append(INGRDIENT_DATA_NOT_FOUND);
+            }
+            ingredients.add(new Ingredient(quantity, unity, ingredientValue.toString()));
         }
 
         return ingredients;
@@ -57,7 +63,7 @@ public class HtmlJSoupIngredientProcessorImpl<T> implements HtmlDataProcessor<T>
     {
         return ingredients
                 .stream()
-                .filter(ingredient -> (ingredient.getIngreident()!= INGRDIENT_DATA_NOT_FOUND))
+                .filter(ingredient -> (!Objects.equals(ingredient.getIngreident(), INGRDIENT_DATA_NOT_FOUND)))
                 .collect(Collectors.toList());
     }
 }

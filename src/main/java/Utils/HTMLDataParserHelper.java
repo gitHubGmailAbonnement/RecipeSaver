@@ -13,10 +13,30 @@ public class HTMLDataParserHelper {
         }
         return true;
     }
+    public static boolean isNumericFranction(String data)
+    {
+        boolean result=false;
+        if(data.contains("/"))
+        {
+            var fracntionNumbers = data.split("/");
+            for (String number : fracntionNumbers)
+            {
+                try {
+                    Double.parseDouble(number);
+                    result = true;
+                }
+                catch (NumberFormatException e)
+                {
+                    return false;
+                }
+            }
+        }
+        return result;
+    }
     //TODO remplacer par regx peut-etre mieux ?
     public static boolean isIngredientUnit(String data)
     {
-        if (data.contains("cup") || data.contains("cups"))
+        if (data.contains("cup") || data.contains("cups") || data.equals("tsp") || data.equals("tbsp"))
         {
             return true;
         }
@@ -24,14 +44,7 @@ public class HTMLDataParserHelper {
         {
             return true;
         }
-        else if(data.contains("grams") || data.contains("kilograms") || data.contains("Oz") || data.contains("mililiters") || data.contains("liters") || data.contains("pound"))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        else return data.contains("grams") || data.contains("kilograms") || data.contains("Oz") || data.contains("mililiters") || data.contains("liters") || data.contains("pound");
 
     }
 
