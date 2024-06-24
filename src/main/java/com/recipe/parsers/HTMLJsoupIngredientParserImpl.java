@@ -1,6 +1,6 @@
-package parsers;
+package com.recipe.parsers;
 
-import Utils.HTMLDataParserHelper;
+import com.recipe.Utils.HTMLDataParserHelper;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -13,14 +13,12 @@ import java.util.logging.Logger;
 //TODO refractor method parse...trop longue
 //TODO revoir le retour des null
 @Component
-public class HTMLJsoupIngredientParserImpl<T> implements HTMLRecipeParser<T> {
+public class HTMLJsoupIngredientParserImpl implements HTMLRecipeParser<Document, Node> {
     private static final Logger LOGGER = Logger.getLogger(String.valueOf(HTMLJsoupIngredientParserImpl.class));
     @Override
-    @SuppressWarnings("unchecked")
-    public T parseHTMLData(T data) {
-        Document rootDoc = (Document) data;
-        if (!Objects.isNull(rootDoc)) {
-            return (T) this.parse(rootDoc);
+    public Node parseHTMLData(Document data) {
+        if (!Objects.isNull(data)) {
+            return this.parse(data);
         }
         return null;
     }

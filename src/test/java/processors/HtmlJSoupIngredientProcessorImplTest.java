@@ -1,13 +1,14 @@
 package processors;
 
-import dtos.Ingredient;
+import com.recipe.dtos.Ingredient;
+import com.recipe.processors.HtmlDataProcessor;
+import com.recipe.processors.HtmlJSoupIngredientProcessorImpl;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Node;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import parsers.HTMLJsoupIngredientParserImpl;
-import parsers.HTMLRecipeParser;
+import com.recipe.parsers.HTMLJsoupIngredientParserImpl;
+import com.recipe.parsers.HTMLRecipeParser;
 
 
 import java.io.BufferedReader;
@@ -15,14 +16,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class HtmlJSoupIngredientProcessorImplTest {
 
-    private HtmlDataProcessor<Node> classUnderTest = new HtmlJSoupIngredientProcessorImpl<>();
-    private HTMLRecipeParser<Document> parser = new HTMLJsoupIngredientParserImpl<>();
+    private HtmlDataProcessor<Node> classUnderTest = new HtmlJSoupIngredientProcessorImpl();
+    private HTMLRecipeParser<Document, Node> parser = new HTMLJsoupIngredientParserImpl();
     @Test
     void processData() throws IOException {
         Document data = getHtmlDocFromFile("/htmlData/recipeHtmlData.html");

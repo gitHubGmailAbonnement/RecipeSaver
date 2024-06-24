@@ -1,4 +1,4 @@
-package dtos;
+package com.recipe.dtos;
 
 public class Ingredient {
     private String quantity;

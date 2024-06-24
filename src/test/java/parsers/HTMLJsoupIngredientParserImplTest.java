@@ -1,5 +1,7 @@
 package parsers;
 
+import com.recipe.parsers.HTMLJsoupIngredientParserImpl;
+import com.recipe.parsers.HTMLRecipeParser;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Node;
@@ -15,12 +17,12 @@ import static org.junit.jupiter.api.Assertions.*;
 //TODO reoir la leture de fichie
 class HTMLJsoupIngredientParserImplTest {
 
-    HTMLRecipeParser<Document> classUnderTest;
+    HTMLRecipeParser<Document, Node> classUnderTest;
 
     @BeforeEach
     void setup()
     {
-        classUnderTest = new HTMLJsoupIngredientParserImpl<>();
+        classUnderTest = new HTMLJsoupIngredientParserImpl();
     }
     @Test
     void parseHTMLData() throws IOException {

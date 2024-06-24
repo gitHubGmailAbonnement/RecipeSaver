@@ -1,4 +1,4 @@
-package Utils;
+package com.recipe.Utils;
 
 public class HTMLDataParserHelper {
 

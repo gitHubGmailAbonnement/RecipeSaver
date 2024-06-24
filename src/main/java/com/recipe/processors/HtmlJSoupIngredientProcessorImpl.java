@@ -1,23 +1,24 @@
-package processors;
+package com.recipe.processors;
 
-import Utils.HTMLDataParserHelper;
-import dtos.Ingredient;
+import com.recipe.Utils.HTMLDataParserHelper;
+import com.recipe.dtos.Ingredient;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class HtmlJSoupIngredientProcessorImpl<T> implements HtmlDataProcessor<T> {
+@Component
+public class HtmlJSoupIngredientProcessorImpl implements HtmlDataProcessor<Node> {
 
     private final String INGRDIENT_DATA_NOT_FOUND= "NOT_FOUND";
     @Override
-    public List<Ingredient> processData(T data) {
-        Node ingredient = (Node) data;
-        if (!Objects.isNull(ingredient)) {
-            return this.filterResult(this.process(ingredient));
+    public List<Ingredient> processData(Node data) {
+        if (!Objects.isNull(data)) {
+            return this.filterResult(this.process(data));
         }
         return new ArrayList<>();
     }
