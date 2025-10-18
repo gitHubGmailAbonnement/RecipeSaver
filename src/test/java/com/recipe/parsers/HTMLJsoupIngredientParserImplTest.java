@@ -1,47 +1,49 @@
-package processors;
+package com.recipe.parsers;
 
-import com.recipe.dtos.Ingredient;
-import com.recipe.processors.HtmlDataProcessor;
-import com.recipe.processors.HtmlJSoupIngredientProcessorImpl;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Node;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import com.recipe.parsers.HTMLJsoupIngredientParserImpl;
-import com.recipe.parsers.HTMLRecipeParser;
-
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HtmlJSoupIngredientProcessorImplTest {
+class HTMLJsoupIngredientParserImplTest {
+    HTMLRecipeParser<Document, JsonNode> classUnderTest;
 
-    private HtmlDataProcessor<Node> classUnderTest = new HtmlJSoupIngredientProcessorImpl();
-    private HTMLRecipeParser<Document, Node> parser = new HTMLJsoupIngredientParserImpl();
-    @Test
-    void processData() throws IOException {
-        Document data = getHtmlDocFromFile("/htmlData/recipeHtmlData.html");
-        Node result = parser.parseHTMLData(data);
-        List<?> ingredients = classUnderTest.processData(result);
-        assertFalse(ingredients.isEmpty());
-        assertEquals(5,ingredients.size());
-        Ingredient firstIngredient = (Ingredient) ingredients.get(1);
-        assertEquals("flour, plain / all-purpose",firstIngredient.getIngreident());
-        assertEquals("1",firstIngredient.getQuantity());
-        assertEquals("tbsp",firstIngredient.getUnity());
+    @BeforeEach
+    void setup()
+    {
+        classUnderTest = new HTMLJsoupIngredientParserImpl();
     }
+    @Test
+    void parseHTMLDataWhenIngredientArePresent() throws IOException {
+        Document data = getHtmlDocFromFile("/htmlData/NorecipeHtmlData.html");
+        JsonNode result = classUnderTest.parseHTMLData(data);
+        assertNull(result);
+    }
+
+    @Test
+    void parseHTMLDataWhenIngredientAreNotPresent() throws IOException {
+        Document data = getHtmlDocFromFile("/htmlData/recipeHtmlData.html");
+        JsonNode result = classUnderTest.parseHTMLData(data);
+        assertNotNull(result);
+        assertEquals(21, result.size());
+    }
+
 
     private Document getHtmlDocFromFile(String path) throws IOException {
         return Jsoup.parse(getStringFomFile(path));
     }
 
     private String getStringFomFile(String path) throws IOException {
-        Class<? extends HtmlJSoupIngredientProcessorImplTest> clazz = HtmlJSoupIngredientProcessorImplTest.class;
+        Class clazz = HTMLJsoupIngredientParserImplTest.class;
         InputStream inputStream = clazz.getResourceAsStream(path);
         return readFromInputStream(inputStream);
     }
@@ -58,4 +60,5 @@ class HtmlJSoupIngredientProcessorImplTest {
         }
         return resultStringBuilder.toString();
     }
+
 }

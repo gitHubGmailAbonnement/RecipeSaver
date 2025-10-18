@@ -1,15 +1,13 @@
 package com.recipe.managers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.recipe.fetcher.DataFetcher;
 import com.recipe.parsers.HTMLRecipeParser;
 import com.recipe.processors.HtmlDataProcessor;
-import com.recipe.dtos.Ingredient;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Node;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * STEPS
@@ -20,25 +18,26 @@ import java.util.List;
  */
 @Service
 public class JsoupRecipeManagerDocumentImpl implements RecipeManager {
-    @Autowired
-    DataFetcher<Document> fetcher;
-    @Autowired
-    HTMLRecipeParser<Document, Node> parser;
-    @Autowired
-    HtmlDataProcessor<Node> processor;
 
-    public JsoupRecipeManagerDocumentImpl(DataFetcher<Document> fetcher, HTMLRecipeParser<Document, Node> parser, HtmlDataProcessor<Node> processor) {
+    private final DataFetcher<Document> fetcher;
+
+    private final HTMLRecipeParser<Document, JsonNode> ingredientParser;
+    //TODO deplacer les processor dans les manageer et appeler les manager (ingrdient et step) depuis cette classe
+
+    private final HtmlDataProcessor<Node> ingredientProcessor;
+
+    public JsoupRecipeManagerDocumentImpl(DataFetcher<Document> fetcher, @Qualifier("ingredientParser") HTMLRecipeParser<Document, JsonNode> ingredientParser, @Qualifier("ingredientParser") HtmlDataProcessor<Node> ingredientProcessor) {
         this.fetcher = fetcher;
-        this.parser = parser;
-        this.processor = processor;
+        this.ingredientParser = ingredientParser;
+        this.ingredientProcessor = ingredientProcessor;
     }
+
 
     @Override
     public void manage(String url) {
 
         Document result = fetcher.fetchData(url);
-        Node parsedData = parser.parseHTMLData(result);
-        List<Ingredient> ingredients = processor.processData(parsedData);
+        JsonNode parsedData = ingredientParser.parseHTMLData(result);
 
     }
 

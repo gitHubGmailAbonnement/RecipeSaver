@@ -1,4 +1,4 @@
-package com.recipe.Controllers;
+package com.recipe.controllers;
 
 import com.recipe.managers.RecipeManager;
 import org.springframework.beans.factory.annotation.Autowired;

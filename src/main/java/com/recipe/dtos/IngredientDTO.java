@@ -1,12 +1,13 @@
 package com.recipe.dtos;
 
-public class Ingredient {
+//TODO replace getter and setter by lombock
+public class IngredientDTO {
     private String quantity;
     private String unity;
     private String ingreident;
     private String notes;
 
-    public Ingredient(String quantity, String unity, String ingreident)
+    public IngredientDTO(String quantity, String unity, String ingreident)
     {
         this.ingreident = ingreident;
         this.notes = "NA";

@@ -1,10 +1,10 @@
 package com.recipe.processors;
 
-import com.recipe.dtos.Ingredient;
+import com.recipe.dtos.IngredientDTO;
 
 import java.util.List;
 
 public interface HtmlDataProcessor <T>{
 
-    List<Ingredient> processData(T data);
+    List<IngredientDTO> processData(T data);
 }

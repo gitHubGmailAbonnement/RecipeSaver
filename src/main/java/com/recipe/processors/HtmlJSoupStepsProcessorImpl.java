@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
-public class HtmlJSoupIngredientProcessorImpl implements HtmlDataProcessor<Node> {
+public class HtmlJSoupStepsProcessorImpl implements HtmlDataProcessor<Node> {
 
     private final String INGRDIENT_DATA_NOT_FOUND= "NOT_FOUND";
     @Override

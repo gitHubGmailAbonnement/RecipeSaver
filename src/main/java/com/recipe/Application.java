@@ -1,7 +1,9 @@
 package com.recipe;
 
+import org.flywaydb.core.Flyway;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 //import org.apache.commons.numbers.fraction.Fraction;
 //import org.jsoup.Jsoup;
@@ -296,6 +298,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
     public static void main(String[] args) {
+
         SpringApplication.run(Application.class, args);
+
     }
 }
+

@@ -1,0 +1,9 @@
+Fefactor
+find ingredients:
+application/ld+json --> recipeIngredient
+find steps
+application/ld+json --> recipeInstructions
+hexagonal architecture
+
+TEST
+Its not real UT...its more like IT...but for a part of the app....not the end-to-end app

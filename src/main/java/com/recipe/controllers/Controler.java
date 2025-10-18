@@ -1,4 +1,4 @@
-package com.recipe.Controllers;
+package com.recipe.controllers;
 
 public interface Controler {
 

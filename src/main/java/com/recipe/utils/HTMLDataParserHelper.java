@@ -1,4 +1,4 @@
-package com.recipe.Utils;
+package com.recipe.utils;
 
 public class HTMLDataParserHelper {
 
@@ -46,6 +46,12 @@ public class HTMLDataParserHelper {
         }
         else return data.contains("grams") || data.contains("kilograms") || data.contains("Oz") || data.contains("mililiters") || data.contains("liters") || data.contains("pound");
 
+    }
+
+    public static boolean isVerb(String data)
+    {
+        //TODO
+        return true;
     }
 
 
