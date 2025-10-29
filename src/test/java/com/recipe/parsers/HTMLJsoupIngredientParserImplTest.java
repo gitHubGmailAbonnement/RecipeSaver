@@ -23,14 +23,14 @@ class HTMLJsoupIngredientParserImplTest {
         classUnderTest = new HTMLJsoupIngredientParserImpl();
     }
     @Test
-    void parseHTMLDataWhenIngredientArePresent() throws IOException {
+    void parseHTMLDataWhenIngredientAreNotPresent() throws IOException {
         Document data = getHtmlDocFromFile("/htmlData/NorecipeHtmlData.html");
         JsonNode result = classUnderTest.parseHTMLData(data);
         assertNull(result);
     }
 
     @Test
-    void parseHTMLDataWhenIngredientAreNotPresent() throws IOException {
+    void parseHTMLDataWhenIngredientArPresent() throws IOException {
         Document data = getHtmlDocFromFile("/htmlData/recipeHtmlData.html");
         JsonNode result = classUnderTest.parseHTMLData(data);
         assertNotNull(result);

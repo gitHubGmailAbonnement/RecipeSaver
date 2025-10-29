@@ -17,16 +17,16 @@ import org.springframework.stereotype.Service;
  * save data
  */
 @Service
-public class JsoupRecipeManagerDocumentImpl implements RecipeManager {
+public class IngredientManager implements RecipeManager {
 
     private final DataFetcher<Document> fetcher;
 
     private final HTMLRecipeParser<Document, JsonNode> ingredientParser;
     //TODO deplacer les processor dans les manageer et appeler les manager (ingrdient et step) depuis cette classe
 
-    private final HtmlDataProcessor<Node> ingredientProcessor;
+    private final HtmlDataProcessor<JsonNode, String> ingredientProcessor;
 
-    public JsoupRecipeManagerDocumentImpl(DataFetcher<Document> fetcher, @Qualifier("ingredientParser") HTMLRecipeParser<Document, JsonNode> ingredientParser, @Qualifier("ingredientParser") HtmlDataProcessor<Node> ingredientProcessor) {
+    public IngredientManager(DataFetcher<Document> fetcher, @Qualifier("ingredientParser") HTMLRecipeParser<Document, JsonNode> ingredientParser, @Qualifier("ingredientParser") HtmlDataProcessor<JsonNode, String> ingredientProcessor) {
         this.fetcher = fetcher;
         this.ingredientParser = ingredientParser;
         this.ingredientProcessor = ingredientProcessor;
@@ -38,6 +38,7 @@ public class JsoupRecipeManagerDocumentImpl implements RecipeManager {
 
         Document result = fetcher.fetchData(url);
         JsonNode parsedData = ingredientParser.parseHTMLData(result);
+        System.out.println(parsedData.asText());
 
     }
 

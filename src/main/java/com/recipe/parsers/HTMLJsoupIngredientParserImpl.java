@@ -45,77 +45,27 @@ public class HTMLJsoupIngredientParserImpl implements HTMLRecipeParser<Document,
             assert root != null;
             //TODO validate type is Recipe (calidate with doc of ldjson)
             for (JsonNode node : root) {
-                if (node.has("@type") && node.has("recipeIngredient")) {
+                if(node.isArray())
+                {
+                    for (JsonNode element : node)
+                    {
+                        if (element.has("recipeIngredient")) {
 
-                    return node.get("recipeIngredient");
+                            return element.get("recipeIngredient");
+                        }
+                    }
+
                 }
-            }
-        }
+                else {
+                    if (node.has("recipeIngredient")) {
 
-//        Elements elements = document.getAllElements();
-//        var htmlDataIt = elements.iterator();
-//        int ingeredentsInLine = 0;
-//        int ingredientsNotInline = 0;
-//        LOGGER.info("Starting parsing ...");
-//        while (htmlDataIt.hasNext()){
-//            var element = htmlDataIt.next();
-//            Element ingredientElementRoot = null;
-//            String ingredientData =element.ownText();
-//            List<String> ingredientsData = List.of(ingredientData.split(" "));
-//            if(ingredientsData.size()>=2) {
-//                if (HTMLDataParserHelper.isNumeric(ingredientsData.get(0)) || ingredientsData.get(0).contains("/") && HTMLDataParserHelper.isNumeric(ingredientsData.get(1)) || ingredientsData.get(1).contains("/") )
-//                {
-//                    var nextIngredientElement = htmlDataIt.next();
-//                    String nextIngredient =nextIngredientElement.ownText();
-//                    System.out.println(nextIngredient);
-//                    List<String> nextIngredients = List.of(nextIngredient.split(" "));
-//                    if (HTMLDataParserHelper.isIngredientUnit(nextIngredients.get(0)))
-//                    {
-//                        ingredientElementRoot = nextIngredientElement;
-//                        ingredientsNotInline++;
-//                        LOGGER.info("Found occurence of ingredient data on multiple line. Number of occurences: "+ingredientsNotInline);
-//
-//                    }
-//                }
-//                else if (HTMLDataParserHelper.isNumeric(ingredientsData.get(0)) || ingredientsData.get(0).contains("/"))
-//                {
-//                    if(HTMLDataParserHelper.isIngredientUnit(ingredientsData.get(1))) {
-//                        ingeredentsInLine++;
-//                        LOGGER.info("Found occurence of ingredient data on one line. Number of occurences: "+ingeredentsInLine);
-//
-//                    }
-//                }
-//
-//            }
-//            else if(ingredientsData.size() == 1 && (HTMLDataParserHelper.isNumeric(ingredientsData.get(0)) || ingredientsData.get(0).contains("/")))
-//            {
-//                var nextIngredientElement = htmlDataIt.next();
-//                String ingredientDataNotInline =nextIngredientElement.ownText();
-//                List<String> ingredientsDataNotInLine = List.of(ingredientDataNotInline.split(" "));
-//                if (HTMLDataParserHelper.isIngredientUnit(ingredientsDataNotInLine.get(0)))
-//                {
-//
-//                    ingredientElementRoot = nextIngredientElement;
-//                    ingredientsNotInline++;
-//                    LOGGER.info("Found occurence of ingredient data on multiple line. Number of occurences: "+ingredientsNotInline);
-//                }
-//
-//            }
-//            if(ingeredentsInLine == 2)
-//            {
-//                var parentNode = element.parentNode();
-//                return parentNode.parentNode();
-//
-//            }
-//            else if(ingredientsNotInline == 2)
-//            {
-//                var parentNode = ingredientElementRoot.parentNode();
-//                return parentNode.parentNode();
-//
-//            }
-//
-//        }
-//        return null;
+                        return node.get("recipeIngredient");
+                    }
+
+                }
+                }
+
+                       }
 
         //TODO no null
         return null ;

@@ -4,7 +4,7 @@ import com.recipe.dtos.IngredientDTO;
 
 import java.util.List;
 
-public interface HtmlDataProcessor <T>{
+public interface HtmlDataProcessor <T, E>{
 
-    List<IngredientDTO> processData(T data);
+    List<E> processData(T data);
 }
