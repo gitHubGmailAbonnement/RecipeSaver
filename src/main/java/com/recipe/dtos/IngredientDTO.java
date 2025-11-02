@@ -1,50 +1,23 @@
 package com.recipe.dtos;
 
+import lombok.*;
+
 //TODO replace getter and setter by lombock
+@Builder
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class IngredientDTO {
     private String quantity;
     private String unity;
     private String ingreident;
     private String notes;
 
-    public IngredientDTO(String quantity, String unity, String ingreident)
+    @Override
+    public String toString()
     {
-        this.ingreident = ingreident;
-        this.notes = "NA";
-        this.quantity = quantity;
-        this.unity = unity;
+        return quantity + " " + unity + " " + ingreident;
     }
 
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getUnity() {
-        return unity;
-    }
-
-    public void setUnity(String unity) {
-        this.unity = unity;
-    }
-
-    public String getIngreident() {
-        return ingreident;
-    }
-
-    public void setIngreident(String ingreident) {
-        this.ingreident = ingreident;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
 }

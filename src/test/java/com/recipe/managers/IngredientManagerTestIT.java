@@ -1,6 +1,7 @@
 package com.recipe.managers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.recipe.dtos.IngredientDTO;
 import com.recipe.fetcher.DataFetcher;
 import com.recipe.fetcher.DataFetcherDocumentImpl;
 import com.recipe.fetcher.JsoupWrapper;
@@ -11,14 +12,14 @@ import com.recipe.processors.HtmlJSoupIngredientProcessorImpl;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
 
-class IngredientManagerTest {
+class IngredientManagerTestIT {
 
     private  DataFetcher<Document> fetcher;
 
     private  HTMLRecipeParser<Document, JsonNode> parser;
     //TODO deplacer les processor dans les manageer et appeler les manager (ingrdient et step) depuis cette classe
 
-    private  HtmlDataProcessor<JsonNode, String> processor;
+    private  HtmlDataProcessor<JsonNode, IngredientDTO> processor;
 
     private RecipeManager manager;
 

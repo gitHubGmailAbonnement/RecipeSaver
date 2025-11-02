@@ -1,6 +1,7 @@
 package com.recipe.managers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.recipe.dtos.IngredientDTO;
 import com.recipe.fetcher.DataFetcher;
 import com.recipe.parsers.HTMLRecipeParser;
 import com.recipe.processors.HtmlDataProcessor;
@@ -8,6 +9,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Node;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * STEPS
@@ -24,9 +27,9 @@ public class IngredientManager implements RecipeManager {
     private final HTMLRecipeParser<Document, JsonNode> ingredientParser;
     //TODO deplacer les processor dans les manageer et appeler les manager (ingrdient et step) depuis cette classe
 
-    private final HtmlDataProcessor<JsonNode, String> ingredientProcessor;
+    private final HtmlDataProcessor<JsonNode, IngredientDTO> ingredientProcessor;
 
-    public IngredientManager(DataFetcher<Document> fetcher, @Qualifier("ingredientParser") HTMLRecipeParser<Document, JsonNode> ingredientParser, @Qualifier("ingredientParser") HtmlDataProcessor<JsonNode, String> ingredientProcessor) {
+    public IngredientManager(DataFetcher<Document> fetcher, HTMLRecipeParser<Document, JsonNode> ingredientParser, HtmlDataProcessor<JsonNode, IngredientDTO> ingredientProcessor) {
         this.fetcher = fetcher;
         this.ingredientParser = ingredientParser;
         this.ingredientProcessor = ingredientProcessor;
@@ -38,7 +41,8 @@ public class IngredientManager implements RecipeManager {
 
         Document result = fetcher.fetchData(url);
         JsonNode parsedData = ingredientParser.parseHTMLData(result);
-        System.out.println(parsedData.asText());
+        List<IngredientDTO> ingredients = ingredientProcessor.processData(parsedData);
+        System.out.println(ingredients.toString());
 
     }
 
